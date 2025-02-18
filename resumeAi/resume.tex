@@ -1,0 +1,181 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Author: Vignesh Iyer                                 %
+% MS CSE ASU                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -------------- README --------------
+% Visit https://github.com/vgnshiyer/ASU-sparkysundevil-resume-template for comprehensive documenation.
+
+% -------------- Resume ---------------
+\documentclass{resume}
+
+\begin{document}
+
+% --------- Contact Information -----------
+\introduction[
+    fullname={MUNAGALA KRISHNA SAI},
+    email={munagalakrishnasai1@gmail.com},
+    phone={+91 8919593028},
+    linkedin={linkedin.com/in/munagalakrishnasai1}
+]
+
+% --------- Summary -----------
+\summary{Full-stack developer over 1.5 years of experience at EXL Digital in Product Development, specializing in .NET, Python and Angular. Skilled in both 
+front-end and back-end development, with a strong focus on building and maintaining web applications}
+
+\begin{educationSection}{Education}
+    \educationItem[
+        university={IIIT Delhi},
+        graduation={Jun 2021 – May 2023},
+        grade={8.2 CGPA},
+        program={M.Tech, Computer Science Engineering},
+        coursework={ML, DeepLearning, Algorithms},
+    ] \\
+     \educationItem[
+        university={SRM Institute Of Science \& Technology},
+        graduation={Jun 2017 – May 2021},
+        grade={9.1 CGPA},
+        program={B.Tech, Computer Science Engineering},
+        coursework={Data Structures, Algorithms, Python, CPP, Dotnet Core}
+    ]
+\end{educationSection}
+
+
+% --------- Skills -----------
+\begin{skillsSection}{Technical Skills}
+    \skillItem[
+        category={Languages},
+        skills={C, C++, Python, Java, C\#}
+    ] \\
+    \skillItem[
+        category={Frameworks \& Tools},
+        skills={Angular, Dotnet, Postman, Git, CI/CD pipelines, AWS, Docker}
+    ] \\
+    \skillItem[
+        category={Databases},
+        skills={SQL, PostgreSQL, MongoDB, Database Management Using SSMS}
+    ]
+\end{skillsSection}
+
+% --------- Experience -----------
+\begin{experienceSection}{Work Experience}
+    \experienceItem[
+        company={EXL Digital},
+        location={Noida Sec-144},
+        position={FullStack Developer},
+        duration={Aug 2023 – Present}
+    ]
+    \begin{itemize}
+        \itemsep -6pt {}
+         \item Developed and deployed 100+ high-performance APIs using .NET and Python for diverse multitenant applications, optimizing scalability and enhancing the overall application efficiency.
+      
+        \item Engineered a robust data processing API pipeline, efficiently managing 20+ complex Formio JSON structures, significantly improving overall operational efficiency.
+        \item Developed a fully responsive and user-friendly website using Angular, ensuring seamless performance across all devices, leading to a 20\% increase in user satisfaction.
+        \item Implemented Single Sign-On (SSO) with API authorization leveraging Bearer tokens, alongside developing an OTP-based email login system seamlessly integrated with Microsoft Graph API to enhance security and user authentication processes.
+        \item Designed and implemented an AWS Lambda function to automate a cron job that processed Excel files from S3, converted them to JSON, and saved the JSON back to S3. Stored the file location and data in a database for efficient retrieval and management.
+        \item Pioneered the automation of the onboarding process through the strategic design and implementation of a Camunda workflow, significantly reducing complexity and enhancing efficiency. Streamlined the process by making the flow and code dynamic, enabling scalability, adaptability, and improved maintainability for future requirements.
+       
+    \end{itemize}
+
+    \experienceItem[
+        company={Nokia},
+        location={Chennai},
+        position={Web Developer Intern},
+        duration={Jun 2018 – Jul 2018}
+    ]
+    \begin{itemize}
+        \itemsep -6pt {}
+        \item Enhanced the existing UI by optimizing design elements and improving user workflows, resulting in a more intuitive and visually appealing interface.
+
+    \end{itemize}
+
+\end{experienceSection}
+
+% --------- Projects -----------
+\begin{experienceSection}{projects}
+    \projectItem[
+        title={ Ultrasound Placental Image Analysis Using Deep Learning},
+        duration={Aug 2022 – March 2020},
+        keyHighlight=Collaborated with a team of five to modify CNN models such as VGG16 and ResNet\, fine-tuning them to achieve optimal performance on our dataset.
+    ]
+    \begin{itemize}
+        \vspace{-0.5em}
+        \itemsep -6pt {}
+        \item Modified and implemented multiple machine learning ML and neural network models to classify the trimesters.
+        \item Performed data augmentation to increase the dataset size by 30\%, enhancing model training and improving performance; findings were documented and published in a research paper.
+        
+    \end{itemize}
+
+    \projectItem[
+        title=DLPM Data Lead Payable Management,
+        duration={Feb 2024 – Nov 2024},
+        keyHighlight=Awarded the Best Team Contributor Award for exceptional collaboration and significant contributions to project success.
+    ]
+    \begin{itemize}
+        \vspace{-0.5em}
+        \itemsep -6pt {}
+        \item  Streamlined accounts receivable processes by deploying an automated tool to classify invoices into PO and Non-PO categories.
+        \item Designed and deployed a machine learning-based classification model to categorize invoices into PO and Non-PO types with nearly 95\% accuracy. Automated the extraction and converted invoice data into JSON format for structured storage in a database, enabling seamless integration with downstream processes and enhanced data accessibility.
+        \item Enabled automated 2-way or 3-way matching for PO-based orders by integrating email-based invoice retrieval, reducing manual intervention and human errors. Optimized non-PO invoice workflows for enhanced accuracy and faster processing. Improved processing efficiency by automating invoice matching with Purchase Orders (POs) and Goods Receipt Notes (GRNs), reducing invoice processing time by 30\% and minimizing errors by 25\%.
+        \item Improved compliance with procurement policies and reduced payment cycle times through automated checks and validations. Facilitated seamless integration with existing ERP systems, ensuring scalability and compatibility across multiple processes.
+        % \item Developed multiple Rest and GraphQL API's
+        % \item Designed and integrated JSON Web Token (JWT)-based authentication and authorization mechanisms, ensuring secure and efficient access control across the application.
+    \end{itemize}
+
+    % \projectItem[
+    %     title = Cryptocurrency Price Prediction
+    %     duration={June 2021 Nov 2021},
+    %     keyHighlight=Leveraged historical data to design and implement a predictive model for cryptocurrency prices
+    % ]
+    % \begin{itemize}
+    %     \vspace{-0.5em}
+    %     \itemsep -6pt {}
+    %     \item Large Language Models LLMs) demonstrated a 10% increase in accuracy compared to other regression models when applied to large datasets
+    % \end{itemize}
+\end{experienceSection}
+
+
+
+% % --------- Other work experience -----------
+% \begin{experienceSection}{Other work experience}
+%     \experienceItem[
+%         company={Arizona State University},
+%         location={Tempe, AZ},
+%         position={Tutor (10 hours/week)},
+%         duration={Aug 2018 – May 2019}
+%     ]
+%     \begin{itemize}
+%         \vspace{-0.2em}
+%         \itemsep -6pt {}
+%         \item Tutored 10-15 undergraduate engineering students per week in MATLAB programming and math coursework
+%     \end{itemize}
+
+%     \experienceItem[
+%         company={Kohl's},
+%         location={Gilbert, AZ},
+%         position={Sales Associate, Jewelry Department (16-24 hours/week)},
+%         duration={Aug 2017 – Dec 2017}
+%     ]
+%     \begin{itemize}
+%         \vspace{-0.2em}
+%         \itemsep -6pt {}
+%         \item Achieved \#2 highest selling associate within one month of hire date
+%     \end{itemize}
+% \end{experienceSection}
+
+% --------- Activities -----------
+% \begin{experienceSection}{Activities}
+%     \projectItem[
+%         title={ASU Society of Women Engineers (SWE)},
+%         keyHighlight={Multiple leadership roles, including vice-president and industry relations chair (300 members{,} \$75k annual budget)},
+%         duration={Aug 2017 – Present}
+%     ]
+%     \begin{itemize}
+%         \vspace{-0.5em}
+%         \itemsep -6pt {}
+%         \item Tutored 10-15 undergraduate engineering students per week in MATLAB programming and math coursework
+%         \item Organized 2018 annual conference participation, including 8 student poster submissions
+%     \end{itemize}
+% \end{experienceSection}
+
+\end{document}

@@ -1,0 +1,20 @@
+We are looking for experienced full-stack software engineers to join Azure DevOps team. Our team is accountable for ensuring we deliver on Azure DevOps promise - always available, always reliable, always responsive. We build new features to enhance performance, scalability and compliance, and deliver productivity wins to all Azure customers. If you are looking for a way to multiply your impact – join us, and unlock 10x increase in productivity to millions of Azure Developers.  
+
+Qualifications
+Required Qualifications: 
+
+3+ years professional software development with at least one of the following C#/C++/Java, SQL, HTML5/JavaScript/React or ASP.NET 
+Excellent analytical skills as well as communication skills both verbal and written. We are a distributed team so we’re extra mindful about communication.  
+Bachelor's Degree in Computer Science, or related technical discipline  
+Preferred Qualifications: 
+
+Experience with Continuous Integration and Continuous Deployment paradigms 
+Familiarity with SQL databases and/or NoSQL document stores. Experience with high scale SQL.  
+Troubleshooting skills across network, application, caching, queuing, load-balancing storage and distributed services layers  
+Experience using and contributing to Open Source or Inner Source 
+
+Responsibilities 
+
+Collaborate closely with Product, Design, and Engineering teams to plan and execute on key business priorities.  
+Design, implement, test, instrument, document and maintain features using C#, SQL, ASP.Net, HTML5, React, Typescript, PowerShell, and Azure 
+Work in a culture of continuous improvement, adaptation, reflection, and growth.   

@@ -1,0 +1,109 @@
+\documentclass{resume}
+
+\begin{document}
+
+% --------- Contact Information -----------
+\introduction[
+    fullname={MUNAGALA KRISHNA SAI},
+    email={munagalakrishnasai1@gmail.com},
+    phone={+91 8919593028},
+    linkedin={linkedin.com/in/munagalakrishnasai1}
+]
+
+% --------- Summary -----------
+\summary{Full-stack developer with 1.5+ years of experience at EXL Digital in Product Development, specializing in .NET, Python, and Angular. Skilled in front-end and back-end development, with a strong focus on building and maintaining high-performance, scalable web applications.  Experience using continuous integration/continuous delivery (CI/CD) pipelines and working with distributed teams to deliver high-impact results.}
+
+\begin{educationSection}{Education}
+    \educationItem[
+        university={IIIT Delhi},
+        graduation={Jun 2021 – May 2023},
+        grade={8.2 CGPA},
+        program={M.Tech, Computer Science Engineering},
+        coursework={ML, Deep Learning, Algorithms, Databases}
+    ] \\
+     \educationItem[
+        university={SRM Institute Of Science \& Technology},
+        graduation={Jun 2017 – May 2021},
+        grade={9.1 CGPA},
+        program={B.Tech, Computer Science Engineering},
+        coursework={Data Structures, Algorithms, Python, C++, .NET Core}
+    ]
+\end{educationSection}
+
+
+% --------- Skills -----------
+\begin{skillsSection}{Technical Skills}
+    \skillItem[
+        category={Languages},
+        skills={C, C++, Python, Java, C\#}
+    ] \\
+    \skillItem[
+        category={Frameworks \& Tools},
+        skills={Angular, .NET, Postman, Git, CI/CD pipelines, AWS, Docker, Azure}
+    ] \\
+    \skillItem[
+        category={Databases},
+        skills={SQL, PostgreSQL, MongoDB, NoSQL databases, Database Management Using SSMS}
+    ]
+\end{skillsSection}
+
+% --------- Experience -----------
+\begin{experienceSection}{Work Experience}
+    \experienceItem[
+        company={EXL Digital},
+        location={Noida Sec-144},
+        position={FullStack Developer},
+        duration={Aug 2023 – Present}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        \item Developed and deployed 100+ high-performance APIs using .NET and Python for diverse multitenant applications, optimizing scalability and enhancing application efficiency.  Ensuring high performance and reliable services.
+        \item Engineered a robust data processing API pipeline, efficiently managing 20+ complex Formio JSON structures, significantly improving operational efficiency and contributing to team wins.
+        \item Developed a responsive website using Angular, ensuring seamless performance across all devices, leading to a 20\% increase in user satisfaction.
+        \item Implemented Single Sign-On (SSO) with API authorization leveraging Bearer tokens and an OTP-based email login system integrated with Microsoft Graph API to enhance security.
+        \item Designed and implemented an AWS Lambda function to automate a cron job processing Excel files from S3, converting them to JSON, and storing data in a database for efficient retrieval.  This improved data management and application performance.
+        \item Automated the onboarding process using Camunda workflow, reducing complexity and enhancing efficiency.  This demonstrated adaptation to new technologies and processes.
+    \end{itemize}
+
+    \experienceItem[
+        company={Nokia},
+        location={Chennai},
+        position={Web Developer Intern},
+        duration={Jun 2018 – Jul 2018}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        \item Enhanced the UI, optimizing design elements and improving user workflows for a more intuitive interface.
+    \end{itemize}
+
+\end{experienceSection}
+
+% --------- Projects -----------
+\begin{experienceSection}{Projects}
+    \projectItem[
+        title={Ultrasound Placental Image Analysis Using Deep Learning},
+        duration={Aug 2022 – March 2020},
+        keyHighlight={Collaborated with a team of five to modify CNN models (VGG16 and ResNet), fine-tuning them for optimal performance.  This project involved implementing new features and improving performance.}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        \item Implemented multiple machine learning and neural network models to classify trimesters.
+        \item Performed data augmentation, increasing the dataset size by 30\%, enhancing model training and performance; findings documented in a research paper.
+    \end{itemize}
+
+    \projectItem[
+        title={DLPM Data Lead Payable Management},
+        duration={Feb 2024 – Nov 2024},
+        keyHighlight={Awarded Best Team Contributor for exceptional collaboration and contributions to project success. This involved working with multiple teams and stakeholders.}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        \item Streamlined accounts receivable processes using an automated tool to classify invoices.  This improved productivity and compliance.
+        \item Designed and deployed a machine learning-based classification model (95\% accuracy) to categorize invoices, automating data extraction and conversion to JSON for database storage.
+        \item Enabled automated 2-way/3-way matching for PO-based orders, integrating email-based invoice retrieval to reduce manual intervention and errors. Optimized non-PO invoice workflows. Improved processing efficiency by 30\%, minimizing errors by 25\%.
+        \item Improved compliance with procurement policies and reduced payment cycle times through automated checks and validations.  This involved scaling the application to handle millions of transactions.
+    \end{itemize}
+
+\end{experienceSection}
+
+\end{document}
