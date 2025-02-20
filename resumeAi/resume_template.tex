@@ -1,0 +1,98 @@
+\documentclass{resume}
+
+\begin{document}
+
+% --------- Contact Information -----------
+\introduction[
+    fullname={{{fullname}}},
+    email={{{email}}},
+    phone={{{phone}}},
+    linkedin={{{linkedin}}}
+]
+
+% --------- Summary -----------
+\summary{{{summary}}}
+
+% --------- Education -----------
+\begin{educationSection}{Education}
+    \educationItem[
+        university={{{university1}}},
+        graduation={{{graduation1}}},
+        grade={{{grade1}}},
+        program={{{program1}}},
+        coursework={{{coursework1}}}
+    ] \\ 
+    \educationItem[
+        university={{{university2}}},
+        graduation={{{graduation2}}},
+        grade={{{grade2}}},
+        program={{{program2}}},
+        coursework={{{coursework2}}}
+    ]
+\end{educationSection}
+
+% --------- Skills -----------
+\begin{skillsSection}{Technical Skills}
+    \skillItem[
+        category={{{category1}}},
+        skills={{{skills1}}}
+    ] \\ 
+    \skillItem[
+        category={{{category2}}},
+        skills={{{skills2}}}
+    ] \\ 
+    \skillItem[
+        category={{{category3}}},
+        skills={{{skills3}}}
+    ]
+\end{skillsSection}
+
+% --------- Experience -----------
+\begin{experienceSection}{Work Experience}
+    \experienceItem[
+        company={{{company1}}},
+        location={{{location1}}},
+        position={{{position1}}},
+        duration={{{duration1}}}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        {{{responsibilities1}}}
+    \end{itemize}
+
+    \experienceItem[
+        company={{{company2}}},
+        location={{{location2}}},
+        position={{{position2}}},
+        duration={{{duration2}}}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        {{{responsibilities2}}}
+    \end{itemize}
+\end{experienceSection}
+
+% --------- Projects -----------
+\begin{experienceSection}{Projects}
+    \projectItem[
+        title={{{title1}}},
+        duration={{{project_duration1}}},
+        keyHighlight={{{keyHighlight1}}}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        {{{details1}}}
+    \end{itemize}
+
+    \projectItem[
+        title={{{title2}}},
+        duration={{{project_duration2}}},
+        keyHighlight={{{keyHighlight2}}}
+    ]
+    \begin{itemize}
+        \itemsep -6pt
+        {{{details2}}}
+    \end{itemize}
+\end{experienceSection}
+
+\end{document}

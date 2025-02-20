@@ -28,6 +28,7 @@ from django.contrib import admin
 from django.urls import path
 from myapp import views
 from resume.views import update_resume
+from user.views import generate_resume
 
 urlpatterns = [
     path('', views.studentApi),  # Root URL
@@ -35,4 +36,5 @@ urlpatterns = [
     path('student/<int:id>/', views.studentApi),
     path('admin/', admin.site.urls),
     path('update-resume/', update_resume, name='update_resume'),
+    path('generate-resume/', generate_resume, name='generate_resume'),
 ]
