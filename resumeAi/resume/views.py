@@ -7,6 +7,37 @@ import spacy
 import json
 import requests
 import re
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+import re
+import os
+import subprocess
+import shutil
+
+def generate_pdf(tex_file: str, cls_file: str, output_dir: str = "output_modified"):
+    tex_file = 'updated_resume.tex'
+    cls_file = 'resume.cls'
+
+    # Ensure the .cls file is in the same directory as the .tex file
+    # shutil.copy(cls_file, cls_file)  # Redundant, but keeping in case of future changes
+    
+    output_dir = "output_modified"
+
+    try:
+        print("I got into try")
+        result = subprocess.run(
+            
+            ["pdflatex", "-output-directory", output_dir, tex_file],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        print(f"PDF successfully created in '{output_dir}'")
+    except subprocess.CalledProcessError as e:
+        print("Error during PDF generation:")
+        print("STDOUT:", e.stdout.decode())
+        print("STDERR:", e.stderr.decode())
 
 # Function to extract keywords from job description (unchanged)
 def extract_keywords(text):
@@ -25,9 +56,12 @@ def integrate_keywords(resume_text, keywords):
     Below are some job description keywords:
     {', '.join(keywords)}
 
-    Rewrite the *content* of the resume (between `\\begin{{document}}` and `\\end{{document}}`) to naturally include these keywords while maintaining professionalism, coherence, and correct LaTeX syntax. Just give me the updated resume *content* as a string.  Make sure the LaTeX code is valid and will compile. Make sure the length remains almost the same that fits in one page without exceeding and the structure should be same.
+    Rewrite the *content* of the resume (between `\\\documentclass{{resume}}` and `\\end{{document}}`) to naturally include these keywords while maintaining professionalism, coherence, and correct LaTeX syntax. Just give me the updated resume *content* as a string.  Make sure the LaTeX code is valid and will compile. Make sure the length remains almost the same that fits in one page without exceeding and the structure should be same.
     It should *not* exceed one page, the word count should remain same, it can be 2 words less not more at all.
-    It should not convert special characters like `–` (en dash) to invalid characters like `�`. The LaTeX syntax should remain intact always, including special characters and symbols.
+    I repeat the amount of content should remain same with that of the original latex file.
+    Critically, maintain the \\\\ double backslash between educationItem and skillItem entries, and between skillItem entries within the skillsSection, to prevent formatting errors. 
+    Critically, also maintain the introduction mandatory, sometimes it is getting missed out.
+    The LaTeX syntax should remain intact always, including special characters and symbols.
     """
 
     api_key = "AIzaSyD7w5kNVdkd9S2UcgJcO6h2L35YzJw43Ko"  # Replace with your actual Gemini API key
@@ -119,6 +153,13 @@ def update_resume(request):
                 # Return the updated resume content as a JSON response
                 response = JsonResponse({'updated_resume': updated_resume})
                 response['Content-Disposition'] = 'attachment; filename="updated_resume.tex"'
+
+                base_dir = os.path.dirname(__file__)
+                tex_path = os.path.join(base_dir, 'updated_resume.tex')
+                cls_path = os.path.join(base_dir, 'resume.cls')
+                output_dir = os.path.join(base_dir, 'pdf_output1')
+                # Call the function correctly
+                generate_pdf(tex_path, cls_path, output_dir)
                 return response
             else:
                 return JsonResponse({'error': 'Failed to update resume.'}, status=500)

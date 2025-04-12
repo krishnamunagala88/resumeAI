@@ -1,20 +1,56 @@
-We are looking for experienced full-stack software engineers to join Azure DevOps team. Our team is accountable for ensuring we deliver on Azure DevOps promise - always available, always reliable, always responsive. We build new features to enhance performance, scalability and compliance, and deliver productivity wins to all Azure customers. If you are looking for a way to multiply your impact – join us, and unlock 10x increase in productivity to millions of Azure Developers.  
 
-Qualifications
-Required Qualifications: 
+KEY ACCOUNTABILITIES 
+Design, implement, test, deploy and maintain innovative software solutions to transform service performance, durability, cost, and security.  
 
-3+ years professional software development with at least one of the following C#/C++/Java, SQL, HTML5/JavaScript/React or ASP.NET 
-Excellent analytical skills as well as communication skills both verbal and written. We are a distributed team so we’re extra mindful about communication.  
-Bachelor's Degree in Computer Science, or related technical discipline  
-Preferred Qualifications: 
+Use software engineering best practices to ensure a high standard of quality for all of the team deliverables.  
 
-Experience with Continuous Integration and Continuous Deployment paradigms 
-Familiarity with SQL databases and/or NoSQL document stores. Experience with high scale SQL.  
-Troubleshooting skills across network, application, caching, queuing, load-balancing storage and distributed services layers  
-Experience using and contributing to Open Source or Inner Source 
+Write high quality distributed system software.  
 
-Responsibilities 
+Work in an agile, startup-like development environment, where you are always working on the most important stuff.  
 
-Collaborate closely with Product, Design, and Engineering teams to plan and execute on key business priorities.  
-Design, implement, test, instrument, document and maintain features using C#, SQL, ASP.Net, HTML5, React, Typescript, PowerShell, and Azure 
-Work in a culture of continuous improvement, adaptation, reflection, and growth.   
+In this role you will lead a critical and highly-visible function within DP World International Expansion Business.  
+
+You will be given the opportunity to autonomously deliver the technical direction of the service, and the feature roadmap.  
+
+You will work with extraordinary talent and have the opportunity to hire and shape the team to best execute on the product. 
+
+ 
+
+OTHER 
+
+Act as an ambassador for DP World at all times when working; promoting and demonstrating positive behaviors in harmony with DP World’s Founder’s Principles, values and culture; ensuring the highest level of safety is applied in all activities; understanding and following DP World’s Code of Conduct and Ethics policies 
+
+Perform other related duties as assigned  
+
+ cPP, docker, kubernetes, ac repair
+
+QUALIFICATIONS, EXPERIENCE AND SKILLS 
+Basic qualifications 
+
+Bachelor’s Degree in Computer Science or related field, or equivalent experience to a Bachelor's degree based on 3 years of work experience for every 1 year of education 
+
+2-4 years professional experience in software development; you will be able to discuss in depth both the design and your significant contributions to one or more projects 
+
+Solid understanding of computer science fundamentals: data structure, algorithm, distributed system design, database, and design patterns. 
+
+Strong coding skills with a modern language (ReactJs, Java, etc) 
+
+Experience working in an Agile/Scrum environment and DevOps automation 
+
+REST, JavaScript/Typescript, Node, GraphQL, PostgreSQL, MongoDB, Redis, Angular, ReactJS, Vue, AWS, machine learning, geolocation and mapping API 
+
+Preferred qualifications 
+
+Experience with distributed system performance analysis and optimization 
+
+Familiar with AWS services (RDS, DynamoDB, Lamda, Kinesis, SNS, CloudWatch, …) 
+
+Experience in NLP, Deep learning & Machine Learning. 
+
+Experience in training machine learning models or developing machine learning infrastructure. 
+
+Strong communications skills; you will be required to proactively engage colleagues both inside and outside of your team 
+
+Ability to effectively articulate technical challenges and solutions 
+
+Deal well with ambiguous/undefined problems; ability to think abstractly

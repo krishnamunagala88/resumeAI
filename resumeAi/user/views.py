@@ -1,100 +1,170 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import re
 import os
+import subprocess
+import shutil
 
+def generate_pdf(tex_file: str, cls_file: str, output_dir: str = "output"):
+    tex_file = 'resume.tex'
+    cls_file = 'resume.cls'
+
+    # Ensure the .cls file is in the same directory as the .tex file
+    # shutil.copy(cls_file, cls_file)  # Redundant, but keeping in case of future changes
+    
+    output_dir = "output"
+
+    try:
+        print("I got into try")
+        result = subprocess.run(
+            
+            ["pdflatex", "-output-directory", output_dir, tex_file],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        print(f"PDF successfully created in '{output_dir}'")
+    except subprocess.CalledProcessError as e:
+        print("Error during PDF generation:")
+        print("STDOUT:", e.stdout.decode())
+        print("STDERR:", e.stderr.decode())
+
+
+    
 @csrf_exempt
 def generate_resume(request):
     if request.method == 'POST':
         try:
-            # Handle both JSON and form-data
-            if request.content_type == "application/json":
-                user_data = json.loads(request.body)  # ✅ Parse JSON data correctly
-            else:
-                user_data = request.POST.dict()  # ✅ Extract form-data
+            data = json.loads(request.body)
+            full_name = data.get('fullname', 'Unknown')
+            email = data.get('email', 'unknown@example.com')
+            phone = data.get('phone', 'N/A')
+            linkedin = data.get('linkedin', 'N/A')
+            summary = data.get('summary', 'No summary provided')
+            education = data.get('education', [])
+            skills = data.get('skills', [])
+            experience = data.get('experience', [])
+            projects = data.get('projects', [])
             
-            print("Received data:", user_data)  # 🔍 Debug received data
+            # Read the template from a file
+            with open('resume_template.tex', 'r', encoding='utf-8') as file:
+                template = file.read()
+            
+            def escape_tex_chars(text):
+                return re.sub(r'(\d+)%', r'\1\\%', text.replace('&', '\\&').replace('#', '\\#'))
+            
+            # Generate the education section dynamically
+            education_section = "\\begin{educationSection}{Education}\n"
+            for i, edu in enumerate(education):
+                university = escape_tex_chars(edu.get('university', 'Unknown University'))
+                program = escape_tex_chars(edu.get('program', 'Unknown Program'))
+                coursework = escape_tex_chars(edu.get('coursework', 'None'))
+                
+                education_section += f"    \\educationItem[\n"
+                education_section += f"        university={{{university}}},\n"
+                education_section += f"        graduation={{{edu.get('graduation', 'Unknown')}}},\n"
+                education_section += f"        grade={{{edu.get('grade', 'N/A')}}},\n"
+                education_section += f"        program={{{program}}},\n"
+                education_section += f"        coursework={{{coursework}}}\n"
+                education_section += f"    ]"
+                if i < len(education) - 1:
+                    education_section += " \\\\ \n"
+                else:
+                    education_section += "\n"
+            education_section += "\\end{educationSection}"
+            
+            # Generate the skills section dynamically
+            skills_section = "\\begin{skillsSection}{Technical Skills}\n"
+            for i, skill in enumerate(skills):
+                category = escape_tex_chars(skill.get('category', 'Unknown Category'))
+                skill_list = escape_tex_chars(skill.get('skills', 'None'))
+                
+                skills_section += f"    \\skillItem[\n"
+                skills_section += f"        category={{{category}}},\n"
+                skills_section += f"        skills={{{skill_list}}}\n"
+                skills_section += f"    ]"
+                if i < len(skills) - 1:
+                    skills_section += " \\\\ \n"
+                else:
+                    skills_section += "\n"
+            skills_section += "\\end{skillsSection}"
+            
+            # Generate the experience section dynamically
+            experience_section = "\\begin{experienceSection}{Work Experience}\n"
+            for exp in experience:
+                company = escape_tex_chars(exp.get('company', 'Unknown Company'))
+                location = escape_tex_chars(exp.get('location', 'Unknown Location'))
+                position = escape_tex_chars(exp.get('position', 'Unknown Position'))
+                duration = escape_tex_chars(exp.get('duration', 'Unknown Duration'))
+                
+                experience_section += f"    \\experienceItem[\n"
+                experience_section += f"        company={{{company}}},\n"
+                experience_section += f"        location={{{location}}},\n"
+                experience_section += f"        position={{{position}}},\n"
+                experience_section += f"        duration={{{duration}}}\n"
+                experience_section += f"    ]\n"
+                experience_section += f"    \\begin{{itemize}}\n"
+                experience_section += f"        \\itemsep -6pt {{}}\n"
+                for item in exp.get('responsibilities', []):
+                    experience_section += f"        \\item {escape_tex_chars(item)}\n"
+                experience_section += f"    \\end{{itemize}}\n"
+            experience_section += "\\end{experienceSection}"
+            
+            # Generate the projects section dynamically
+            projects_section = "\\begin{experienceSection}{Projects}\n"
+            for proj in projects:
+                title = escape_tex_chars(proj.get('title', 'Unknown Project'))
+                duration = escape_tex_chars(proj.get('duration', 'Unknown Duration'))
+                key_highlight = escape_tex_chars(proj.get('keyHighlight', ''))
+                
+                projects_section += f"    \\projectItem[\n"
+                projects_section += f"        title={{{title}}},\n"
+                projects_section += f"        duration={{{duration}}},\n"
+                projects_section += f"        keyHighlight={{{key_highlight}}}\n"
+                projects_section += f"    ]\n"
+                projects_section += f"    \\begin{{itemize}}\n"
+                projects_section += f"        \\itemsep -6pt {{}}\n"
+                for item in proj.get('details', []):
+                    projects_section += f"        \\item {escape_tex_chars(item)}\n"
+                projects_section += f"    \\end{{itemize}}\n"
+            projects_section += "\\end{experienceSection}"
+            
+            # Replace placeholders with actual values
+            resume_text = (template
+                .replace('$$fullname$$', full_name)
+                .replace('$$email$$', email)
+                .replace('$$phone$$', phone)
+                .replace('$$linkedin$$', linkedin)
+                .replace('$$summary$$', summary)
+                .replace('$$education$$', education_section)
+                .replace('$$skills$$', skills_section)
+                .replace('$$experience$$', experience_section)
+                .replace('$$projects$$', projects_section)
+            )
+            
+            # Save the updated content into a new file
+            # filename = f"{full_name.replace(' ', '_')}.tex"
+            # with open(filename, 'w', encoding='utf-8') as output_file:
+            #     output_file.write(resume_text)
 
-            # Validate data
-            fullname = user_data.get("fullname", "").strip()
-            if not fullname:
-                return JsonResponse({"error": "Fullname not provided"}, status=400)
+            # from resume_text you are writing into resume.tex
+            filename = "resume.tex"
+            with open(filename, 'w', encoding='utf-8') as output_file:
+                output_file.write(resume_text) 
+            
+            base_dir = os.path.dirname(__file__)
+            tex_path = os.path.join(base_dir, 'resume.tex')
+            cls_path = os.path.join(base_dir, 'resume.cls')
+            output_dir = os.path.join(base_dir, 'pdf_output')
 
-            # Load the LaTeX template
-            template_path = "resume_template.tex"
-            if not os.path.exists(template_path):
-                return JsonResponse({"error": "Template file not found"}, status=500)
+            # Call the function correctly
+            generate_pdf(tex_path, cls_path, output_dir)
 
-            with open(template_path, "r", encoding="utf-8") as file:
-                template_content = file.read()
-
-            # Format responsibilities and project details as LaTeX itemized lists
-            def format_list(key):
-                items = user_data.get(key, [])
-                if isinstance(items, str):
-                    items = [items]  # Convert single string to list
-                return "\n".join([f"\\item {item}" for item in items]) if items else "\\item None"
-
-            responsibilities1 = format_list("responsibilities1")
-            responsibilities2 = format_list("responsibilities2")
-            details1 = format_list("details1")
-            details2 = format_list("details2")
-
-            # Dictionary of placeholders and values (handling None values)
-            placeholders = {
-                "fullname": fullname,
-                "email": user_data.get("email", ""),
-                "phone": user_data.get("phone", ""),
-                "linkedin": user_data.get("linkedin", ""),
-                "summary": user_data.get("summary", ""),
-                "university1": user_data.get("university1", ""),
-                "graduation1": user_data.get("graduation1", ""),
-                "grade1": user_data.get("grade1", ""),
-                "program1": user_data.get("program1", ""),
-                "coursework1": user_data.get("coursework1", ""),
-                "university2": user_data.get("university2", ""),
-                "graduation2": user_data.get("graduation2", ""),
-                "grade2": user_data.get("grade2", ""),
-                "program2": user_data.get("program2", ""),
-                "coursework2": user_data.get("coursework2", ""),
-                "category1": user_data.get("category1", ""),
-                "skills1": user_data.get("skills1", ""),
-                "category2": user_data.get("category2", ""),
-                "skills2": user_data.get("skills2", ""),
-                "category3": user_data.get("category3", ""),
-                "skills3": user_data.get("skills3", ""),
-                "company1": user_data.get("company1", ""),
-                "location1": user_data.get("location1", ""),
-                "position1": user_data.get("position1", ""),
-                "duration1": user_data.get("duration1", ""),
-                "responsibilities1": responsibilities1,
-                "company2": user_data.get("company2", ""),
-                "location2": user_data.get("location2", ""),
-                "position2": user_data.get("position2", ""),
-                "duration2": user_data.get("duration2", ""),
-                "responsibilities2": responsibilities2,
-                "title1": user_data.get("title1", ""),
-                "project_duration1": user_data.get("project_duration1", ""),
-                "keyHighlight1": user_data.get("keyHighlight1", ""),
-                "details1": details1,
-                "title2": user_data.get("title2", ""),
-                "project_duration2": user_data.get("project_duration2", ""),
-                "keyHighlight2": user_data.get("keyHighlight2", ""),
-                "details2": details2
-            }
-
-            # Replace placeholders in the template
-            for placeholder, value in placeholders.items():
-                template_content = template_content.replace(f"{{{{{placeholder}}}}}", value)
-
-            # Save the rendered resume as a .tex file
-            output_filename = f"{fullname.replace(' ', '_')}_resume.tex"
-            with open(output_filename, "w", encoding="utf-8") as output_file:
-                output_file.write(template_content)
-
-            return JsonResponse({"message": "Resume generated successfully!", "filename": output_filename})
-
-        except Exception as e:
-            return JsonResponse({"error": str(e)}, status=500)
-
-    return JsonResponse({"error": "Invalid request method"}, status=400)
+            return JsonResponse({'message': f'Resume saved as {filename}'})
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except FileNotFoundError:
+            return JsonResponse({'error': 'Template file not found'}, status=500)
+    
+    return JsonResponse({'error': 'Invalid request method'}, status=405)

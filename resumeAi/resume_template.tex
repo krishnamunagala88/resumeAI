@@ -1,98 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Author: Vignesh Iyer                                 %
+% MS CSE ASU                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -------------- README --------------
+% Visit https://github.com/vgnshiyer/ASU-sparkysundevil-resume-template for comprehensive documenation.
+
+% -------------- Resume ---------------
 \documentclass{resume}
 
 \begin{document}
 
 % --------- Contact Information -----------
 \introduction[
-    fullname={{{fullname}}},
-    email={{{email}}},
-    phone={{{phone}}},
-    linkedin={{{linkedin}}}
+    fullname={$$fullname$$},
+    email={$$email$$},
+    phone={$$phone$$},
+    linkedin={$$linkedin$$}
 ]
 
 % --------- Summary -----------
-\summary{{{summary}}}
+\summary{$$summary$$}
 
-% --------- Education -----------
-\begin{educationSection}{Education}
-    \educationItem[
-        university={{{university1}}},
-        graduation={{{graduation1}}},
-        grade={{{grade1}}},
-        program={{{program1}}},
-        coursework={{{coursework1}}}
-    ] \\ 
-    \educationItem[
-        university={{{university2}}},
-        graduation={{{graduation2}}},
-        grade={{{grade2}}},
-        program={{{program2}}},
-        coursework={{{coursework2}}}
-    ]
-\end{educationSection}
+$$education$$
+
 
 % --------- Skills -----------
-\begin{skillsSection}{Technical Skills}
-    \skillItem[
-        category={{{category1}}},
-        skills={{{skills1}}}
-    ] \\ 
-    \skillItem[
-        category={{{category2}}},
-        skills={{{skills2}}}
-    ] \\ 
-    \skillItem[
-        category={{{category3}}},
-        skills={{{skills3}}}
-    ]
-\end{skillsSection}
+$$skills$$
 
 % --------- Experience -----------
-\begin{experienceSection}{Work Experience}
-    \experienceItem[
-        company={{{company1}}},
-        location={{{location1}}},
-        position={{{position1}}},
-        duration={{{duration1}}}
-    ]
-    \begin{itemize}
-        \itemsep -6pt
-        {{{responsibilities1}}}
-    \end{itemize}
-
-    \experienceItem[
-        company={{{company2}}},
-        location={{{location2}}},
-        position={{{position2}}},
-        duration={{{duration2}}}
-    ]
-    \begin{itemize}
-        \itemsep -6pt
-        {{{responsibilities2}}}
-    \end{itemize}
-\end{experienceSection}
+$$experience$$
 
 % --------- Projects -----------
-\begin{experienceSection}{Projects}
-    \projectItem[
-        title={{{title1}}},
-        duration={{{project_duration1}}},
-        keyHighlight={{{keyHighlight1}}}
-    ]
-    \begin{itemize}
-        \itemsep -6pt
-        {{{details1}}}
-    \end{itemize}
 
-    \projectItem[
-        title={{{title2}}},
-        duration={{{project_duration2}}},
-        keyHighlight={{{keyHighlight2}}}
-    ]
-    \begin{itemize}
-        \itemsep -6pt
-        {{{details2}}}
-    \end{itemize}
-\end{experienceSection}
+$$projects$$
+
+
+
+
+% % --------- Other work experience -----------
+% \begin{experienceSection}{Other work experience}
+%     \experienceItem[
+%         company={Arizona State University},
+%         location={Tempe, AZ},
+%         position={Tutor (10 hours/week)},
+%         duration={Aug 2018 – May 2019}
+%     ]
+%     \begin{itemize}
+%         \vspace{-0.2em}
+%         \itemsep -6pt {}
+%         \item Tutored 10-15 undergraduate engineering students per week in MATLAB programming and math coursework
+%     \end{itemize}
+
+%     \experienceItem[
+%         company={Kohl's},
+%         location={Gilbert, AZ},
+%         position={Sales Associate, Jewelry Department (16-24 hours/week)},
+%         duration={Aug 2017 – Dec 2017}
+%     ]
+%     \begin{itemize}
+%         \vspace{-0.2em}
+%         \itemsep -6pt {}
+%         \item Achieved \#2 highest selling associate within one month of hire date
+%     \end{itemize}
+% \end{experienceSection}
+
+% --------- Activities -----------
+% \begin{experienceSection}{Activities}
+%     \projectItem[
+%         title={ASU Society of Women Engineers (SWE)},
+%         keyHighlight={Multiple leadership roles, including vice-president and industry relations chair (300 members{,} \$75k annual budget)},
+%         duration={Aug 2017 – Present}
+%     ]
+%     \begin{itemize}
+%         \vspace{-0.5em}
+%         \itemsep -6pt {}
+%         \item Tutored 10-15 undergraduate engineering students per week in MATLAB programming and math coursework
+%         \item Organized 2018 annual conference participation, including 8 student poster submissions
+%     \end{itemize}
+% \end{experienceSection}
 
 \end{document}
