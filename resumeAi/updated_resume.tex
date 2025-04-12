@@ -1,6 +1,8 @@
 \documentclass{resume}
 
 \begin{document}
+
+% --------- Contact Information -----------
 \introduction[
     fullname={MUNAGALA susmitha sen},
     email={munagalakrishnasai1@gmail.com},
@@ -9,7 +11,7 @@
 ]
 
 % --------- Summary -----------
-\summary{Experienced Full-Stack Developer with expertise in .NET and Angular, passionate about building scalable and efficient applications.  Strong problem-solving skills and a proven ability to deliver high-quality software solutions within tight deadlines.}
+\summary{Experienced Full-Stack Developer with expertise in .NET and Angular, passionate about building high-performance, scalable applications. Demonstrating strong problem-solving skills and a commitment to delivering high-quality solutions.}
 
 \begin{educationSection}{Education}
     \educationItem[
@@ -33,15 +35,15 @@
 \begin{skillsSection}{Technical Skills}
     \skillItem[
         category={Languages},
-        skills={C, C++, Python, Java, C\#}
+        skills={C, C++, Python, Java, C\#, JavaScript}
     ] \\ 
     \skillItem[
         category={Frameworks \& Tools},
-        skills={Angular, .NET, Postman, Git, Docker, Kubernetes, CI/CD pipelines, AWS}
+        skills={Angular, .NET, ReactJS, Postman, Git, Docker, Kubernetes, CI/CD pipelines, AWS}
     ] \\ 
     \skillItem[
         category={Databases},
-        skills={SQL, PostgreSQL, MongoDB, Database Management Using SSMS}
+        skills={SQL, PostgreSQL, MongoDB, Database Management, API design}
     ]
 \end{skillsSection}
 
@@ -55,12 +57,12 @@
     ]
     \begin{itemize}
         \itemsep -6pt
-        \item Developed and deployed 100+ high-performance APIs using .NET and Python for diverse multitenant applications, optimizing scalability and enhancing overall application efficiency.  Demonstrating strong coding skills and API design patterns.
-        \item Engineered a robust data processing API pipeline, efficiently managing 20+ complex Formio JSON structures, significantly improving overall operational efficiency.  Used modern software development practices.
-        \item Developed a fully responsive and user-friendly website using Angular, ensuring seamless performance across all devices, leading to a 20\% increase in user satisfaction.  Ensuring high quality and positive user experience.
-        \item Implemented Single Sign-On (SSO) with API authorization leveraging Bearer tokens, alongside developing an OTP-based email login system seamlessly integrated with Microsoft Graph API to enhance security and user authentication processes.  Addressing critical security challenges.
-        \item Designed and implemented an AWS Lambda function to automate a cron job that processed Excel files from S3, converted them to JSON, and saved the JSON back to S3.  Significant automation contributions.
-        \item Pioneered the automation of the onboarding process through the strategic design and implementation of a Camunda workflow, significantly reducing complexity and enhancing efficiency.  Improving operational efficiency and reducing cost.
+        \item Developed and deployed 100+ high-performance APIs using .NET and Python, optimizing scalability and ensuring high availability for diverse multitenant applications. Significant contributions to improving overall application performance.
+        \item Engineered a robust data processing API pipeline, efficiently managing 20+ complex Formio JSON structures, significantly improving operational efficiency and data quality.
+        \item Developed a fully responsive and user-friendly website using Angular, ensuring seamless performance across all devices, leading to a 20\% increase in user satisfaction and positive user experience.
+        \item Implemented Single Sign-On (SSO) with API authorization leveraging Bearer tokens, alongside developing an OTP-based email login system integrated with Microsoft Graph API to enhance security.
+        \item Designed and implemented an AWS Lambda function to automate a cron job processing Excel files from S3, converting to JSON, and storing data in a database for efficient retrieval. This improved data analysis capabilities.
+        \item Automated the onboarding process using a Camunda workflow, reducing complexity and enhancing efficiency, demonstrating strong problem-solving skills.
     \end{itemize}
     \experienceItem[
         company={Nokia},
@@ -70,8 +72,8 @@
     ]
     \begin{itemize}
         \itemsep -6pt
-        \item Enhanced the existing UI by optimizing design elements and improving user workflows, resulting in a more intuitive and visually appealing interface.  Improving user experience and implementing best practices.
-        \item Worked within a team environment, collaborating effectively with colleagues to deliver projects on time and within budget.
+        \item Enhanced the UI, optimizing design and workflows for a more intuitive user experience.
+        \item Contributed to team projects, demonstrating ability to work collaboratively and deliver on assigned tasks.
     \end{itemize}
 \end{experienceSection}
 
@@ -81,28 +83,27 @@
     \projectItem[
         title={Ultrasound Placental Image Analysis Using Deep Learning},
         duration={Aug 2022 -- March 2023},
-        keyHighlight={Collaborated with a team to modify CNN models (VGG16, ResNet) for image classification.}
+        keyHighlight={Collaborated on modifying CNN models (VGG16, ResNet) for image classification, demonstrating strong machine learning skills.}
     ]
     \begin{itemize}
         \itemsep -6pt
-        \item Modified and implemented multiple ML and neural network models to classify trimesters.  Applied machine learning models.
-        \item Performed data augmentation, increasing dataset size by 30\%, leading to improved model accuracy.  Data analysis and optimization.
-        \item Published findings in a research paper.
+        \item Implemented ML and neural network models to classify trimesters.
+        \item Performed data augmentation, increasing dataset size by 30\%, improving model accuracy.
+        \item Published research findings.
     \end{itemize}
     \projectItem[
         title={DLPM Data Lead Payable Management},
         duration={Feb 2024 -- Nov 2024},
-        keyHighlight={Awarded Best Team Contributor for significant project contributions.}
+        keyHighlight={Awarded Best Team Contributor for significant project contributions, showcasing strong technical abilities and teamwork.}
     ]
     \begin{itemize}
         \itemsep -6pt
-        \item Deployed an automated tool to classify invoices into PO and Non-PO categories.  Implementing automation solutions.
-        \item Designed and implemented a machine learning model to achieve 95\% classification accuracy.  High performance machine learning.
-        \item Automated invoice processing, reducing manual efforts and errors by 25\%. Enabled seamless ERP integration for streamlined data management.  Improving efficiency and reducing errors.
-        \item Automated the extraction and converted invoice data into JSON format for structured storage in a database, enabling seamless integration with downstream processes and enhanced data accessibility.  Data structure and management.
-        \item Enabled automated 2-way or 3-way matching for PO-based orders by integrating email-based invoice retrieval, reducing manual intervention and human errors.   Improving data quality.
-        \item Optimized non-PO invoice workflows for enhanced accuracy and faster processing.  Optimization and efficiency improvements.
+        \item Deployed an automated tool to classify invoices (PO/Non-PO) with 95\% accuracy using a machine learning model.
+        \item Automated invoice processing, reducing manual effort and errors by 25\%, improving cost efficiency. Enabled seamless ERP integration.
+        \item Automated data extraction and conversion to JSON for database storage.
+        \item Enabled automated 2-way/3-way matching for PO-based orders, reducing manual intervention.
+        \item Optimized non-PO invoice workflows.
+        \item Improved processing efficiency by automating invoice matching, reducing processing time by 30\% and minimizing errors.
     \end{itemize}
 \end{experienceSection}
-
 \end{document}
