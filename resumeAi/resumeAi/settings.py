@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bse8=+ac99w1g!8^ncs(!+8ljpjcar2=lp08=i$5uc+gmq#(5a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['resumeai-6.onrender.com']
 
 
 # Application definition
